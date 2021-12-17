@@ -1,0 +1,24 @@
+{
+  "name": "maro-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "application.js",
+  "scripts": {
+    "start": "pm2 start ecosystem.config.js --only prod && pm2 monit"
+  },
+  "author": "Nariah",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.8",
+    "path": "^0.12.7",
+    "pm2": "^5.1.1",
+    "prismarine-nbt": "^2.0.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "prettier": "2.5.0"
+  }
+}
