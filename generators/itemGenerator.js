@@ -63,10 +63,6 @@ const parseItems = async function (base64, db) {
       const ExtraAttributes = item.tag.ExtraAttributes;
       let price = data?.price * item.Count;
 
-      if (ExtraAttributes.skin && data?.skinPrices) {
-        price = data.skinPrices[ExtraAttributes.skin] ?? data.price;
-      }
-
       if (ExtraAttributes.winning_bid && !itemId.includes('hegemony')) {
         price = ExtraAttributes.winning_bid;
       }
@@ -102,9 +98,7 @@ const parseItems = async function (base64, db) {
         const gems = helper.parseItemGems(ExtraAttributes.gems);
 
         for (const gem of Object.values(gems)) {
-          if (gem.tier && gem.type) {
-            price += db[`${gem.tier}_${gem.type}_gem`.toLowerCase()]?.price ?? 0;
-          }
+          price += db[`${gem.tier}_${gem.type}_gem`.toLowerCase()]?.price ?? 0;
         }
       }
 
