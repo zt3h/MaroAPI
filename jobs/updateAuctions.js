@@ -6,18 +6,15 @@ const db = require('../storage/database');
 let auctions = {};
 
 const fetchAuctions = async function (pages = 0) {
-  try {
-    for (let i = 0; i <= pages; i++) {
-      const auctionPage = await api.getAuctionPage(i);
+  for (let i = 0; i <= pages; i++) {
+    const auctionPage = await api.getAuctionPage(i);
+    if (!auctionPage.success) continue;
 
-      pages = auctionPage.totalPages - 1;
-      await processAuctions(auctionPage);
-    }
-  } catch (e) {
-    return await fetchAuctions();
+    pages = auctionPage.totalPages - 1;
+    await processAuctions(auctionPage);
   }
 
-  await updateAuctions();
+  return await updateAuctions();
 };
 
 const updateAuctions = async function () {
