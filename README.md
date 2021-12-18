@@ -8,8 +8,8 @@ The API has different endpoints which include; auction data, networth data, baza
 
 ### Prerequisites
 
-* NodeJS >= 14
-* Mongo Database
+- NodeJS >= 14
+- Mongo Database
 
 ### Local Setup
 
