@@ -59,9 +59,8 @@ const parseItems = async function (base64, db) {
         }
       }
 
-      const data = db[itemId];
       const ExtraAttributes = item.tag.ExtraAttributes;
-      let price = data?.price * item.Count;
+      let price = db[itemId] * item.Count;
 
       if (ExtraAttributes.winning_bid && !itemId.includes('hegemony')) {
         price = ExtraAttributes.winning_bid;
@@ -73,7 +72,7 @@ const parseItems = async function (base64, db) {
         if (enchants.length == 1) {
           const value = ExtraAttributes.enchantments[enchants[0]];
 
-          price = db[`${enchants[0]}_${value}`]?.price ?? 0;
+          price = db[`${enchants[0]}_${value}`] ?? 0;
           itemName = helper.capitalize(`${enchants[0]} ${value}`);
         }
       }
@@ -83,14 +82,14 @@ const parseItems = async function (base64, db) {
           if (constants.blocked_enchants[itemId]?.includes(enchant[0])) continue;
 
           if (constants.allowed_enchants.includes(enchant[0])) {
-            price += db[`${enchant[0]}_${enchant[1]}`]?.price ?? 0;
+            price += db[`${enchant[0]}_${enchant[1]}`] ?? 0;
           }
         }
       }
 
       if (ExtraAttributes.rarity_upgrades > 0 && ExtraAttributes.originTag) {
         if (ExtraAttributes.enchantments || constants.talismans[itemId]) {
-          price += db['recombobulator_3000']?.price / 2;
+          price += db['recombobulator_3000'] / 2;
         }
       }
 
@@ -98,7 +97,7 @@ const parseItems = async function (base64, db) {
         const gems = helper.parseItemGems(ExtraAttributes.gems);
 
         for (const gem of Object.values(gems)) {
-          price += db[`${gem.tier}_${gem.type}_gem`.toLowerCase()]?.price ?? 0;
+          price += db[`${gem.tier}_${gem.type}_gem`.toLowerCase()] ?? 0;
         }
       }
 
@@ -106,7 +105,7 @@ const parseItems = async function (base64, db) {
         const reforge = ExtraAttributes.modifier;
 
         if (constants.reforges[reforge]) {
-          price += db[constants.reforges[reforge]]?.price ?? 0;
+          price += db[constants.reforges[reforge]] ?? 0;
         }
       }
 
@@ -114,34 +113,34 @@ const parseItems = async function (base64, db) {
         const starsUsed = ExtraAttributes.dungeon_item_level - 5;
 
         for (const star of Array(starsUsed).keys()) {
-          price += db[constants.master_stars[star]]?.price ?? 0;
+          price += db[constants.master_stars[star]] ?? 0;
         }
       }
 
       if (ExtraAttributes.ability_scroll) {
         for (const item of Object.values(ExtraAttributes.ability_scroll)) {
-          price += db[item.toLowerCase()]?.price ?? 0;
+          price += db[item.toLowerCase()] ?? 0;
         }
       }
 
       if (ExtraAttributes.gemstone_slots) {
-        price += ExtraAttributes.gemstone_slots * db['gemstone_chamber']?.price;
+        price += ExtraAttributes.gemstone_slots * db['gemstone_chamber'];
       }
 
       if (ExtraAttributes.drill_part_upgrade_module) {
-        price += db[ExtraAttributes.drill_part_upgrade_module]?.price ?? 0;
+        price += db[ExtraAttributes.drill_part_upgrade_module] ?? 0;
       }
 
       if (ExtraAttributes.drill_part_fuel_tank) {
-        price += db[ExtraAttributes.drill_part_fuel_tank]?.price ?? 0;
+        price += db[ExtraAttributes.drill_part_fuel_tank] ?? 0;
       }
 
       if (ExtraAttributes.drill_part_engine) {
-        price += db[ExtraAttributes.drill_part_engine]?.price ?? 0;
+        price += db[ExtraAttributes.drill_part_engine] ?? 0;
       }
 
       if (ExtraAttributes.ethermerge > 0) {
-        price += db['etherwarp_conduit']?.price ?? 0;
+        price += db['etherwarp_conduit'] ?? 0;
       }
 
       item.price = price ?? 0;
@@ -171,7 +170,7 @@ const getItems = async function (profile, db) {
     let sacksValue = 0;
 
     for (const [index, count] of Object.entries(profile.sacks_counts)) {
-      const sackPrice = db[index.toLowerCase()]?.price;
+      const sackPrice = db[index.toLowerCase()];
 
       if (sackPrice != undefined) {
         sacksValue += sackPrice * count ?? 0;

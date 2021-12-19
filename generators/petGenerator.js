@@ -41,13 +41,13 @@ const getPetPrice = function (pet, db) {
   }
 
   let data = calculateSkillLevel(pet);
-  let price = lvl200?.price ?? lvl100.price;
+  let price = lvl200 ?? lvl100;
 
   if (data.level < 100 && data.xpMax) {
-    const baseFormula = (lvl100.price - lvl1.price) / data.xpMax;
+    const baseFormula = (lvl100 - lvl1) / data.xpMax;
 
     if (baseFormula != undefined) {
-      price = baseFormula * pet.exp + lvl1.price;
+      price = baseFormula * pet.exp + lvl1;
     }
   }
 
@@ -55,9 +55,9 @@ const getPetPrice = function (pet, db) {
     const level = data.level.toString().slice(1);
 
     if (level != 1) {
-      const baseFormula = (lvl200.price - lvl100.price) / 100;
+      const baseFormula = (lvl200 - lvl100) / 100;
 
-      price = baseFormula * level + lvl100.price;
+      price = baseFormula * level + lvl100;
     }
   }
 
@@ -65,7 +65,7 @@ const getPetPrice = function (pet, db) {
     const heldItemPrice = db[pet.heldItem.toLowerCase()];
 
     if (heldItemPrice != undefined) {
-      price += heldItemPrice.price;
+      price += heldItemPrice;
     }
   }
 
