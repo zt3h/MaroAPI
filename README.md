@@ -31,7 +31,7 @@ Then you can start the API service using the following command using either Yarn
 
 First navigate into the /backup folder and import the .csv files into a Mongo Database.
 
-Once done, you will then need to enter both your Mongo DB URL to the config.js before starting the application.
+Once done, you will then need to enter your Mongo DB URL to the config.js before starting the application.
 
 ### Endpoint Usage
 
