@@ -31,15 +31,15 @@ Then you can start the API service using the following command using either Yarn
 
 First navigate into the /backup folder and import the .csv files into a Mongo Database.
 
-Once done, you will need to enter both your Hypixel API key and Mongo DB URL to the config.js file strings.
+Once done, you will then need to enter your Mongo DB URL to the config.js before starting the application.
 
 ### Endpoint Usage
 
-Endpoints that require a valid parameter will be listed on the API documentation which can be found by navigating to the below route.
+Endpoints that require a valid parameter will be listed on the API documentation which can be found by navigating to the below route once the application has been started.
 
     http://localhost:3000/
 
-For sending a request to the POST endpoints, details on the required body structure and the response format is found here (https://gist.github.com/zt3h)
+For sending a request to the POST endpoints, details on the required body structure and the response format is found [here](https://gist.github.com/zt3h)
 
 ### Support / Contact
 
