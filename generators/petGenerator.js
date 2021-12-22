@@ -40,41 +40,34 @@ const getPetPrice = function (pet, db) {
     return pet;
   }
 
-  let data = calculateSkillLevel(pet);
+  const data = calculateSkillLevel(pet);
   let price = lvl200 ?? lvl100;
 
   if (data.level < 100 && data.xpMax) {
     const baseFormula = (lvl100 - lvl1) / data.xpMax;
 
-    if (baseFormula != undefined) {
-      price = baseFormula * pet.exp + lvl1;
-    }
+    price = baseFormula * pet.exp + lvl1;
   }
 
   if (data.level > 100 && data.level < 200) {
     const level = data.level.toString().slice(1);
+    const baseFormula = (lvl200 - lvl100) / 100;
 
-    if (level != 1) {
-      const baseFormula = (lvl200 - lvl100) / 100;
-
-      price = baseFormula * level + lvl100;
-    }
+    price = baseFormula * level + lvl100;
   }
 
   if (pet.heldItem && data.level != 200) {
-    const heldItemPrice = db[pet.heldItem.toLowerCase()];
+    const heldItem = db[pet.heldItem.toLowerCase()];
 
-    if (heldItemPrice != undefined) {
-      price += heldItemPrice;
+    if (heldItem != undefined) {
+      price += heldItem;
     }
   }
 
   if (pet.candyUsed > 0 && pet.type != 'ENDER_DRAGON') {
     const reducedValue = price / 1.538232;
 
-    if (reducedValue && !isNaN(reducedValue)) {
-      price = reducedValue;
-    }
+    price = reducedValue;
   }
 
   pet.price = price;
