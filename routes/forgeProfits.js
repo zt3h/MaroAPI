@@ -6,20 +6,20 @@ let profits = null;
 let prices = {};
 
 const updateProfits = async function () {
-  for (const product of await db.bazaar.find()) {
-    prices[product.id] = {
-      name: product.name,
-      price: parseInt(product.buyPrice),
-      type: 'BAZAAR'
-    };
-  }
-
   for (const item of await db.auctions.find()) {
     prices[item.id] = {
       name: item.auction.name,
       price: parseInt(item.auction.price),
       sales: item.sales.sort((a, b) => a.price - b.price),
       type: 'AUCTION'
+    };
+  }
+  
+  for (const product of await db.bazaar.find()) {
+    prices[product.id] = {
+      name: product.name,
+      price: parseInt(product.buyPrice),
+      type: 'BAZAAR'
     };
   }
 
