@@ -14,7 +14,7 @@ const updateProfits = async function () {
       type: 'AUCTION'
     };
   }
-  
+
   for (const product of await db.bazaar.find()) {
     prices[product.id] = {
       name: product.name,

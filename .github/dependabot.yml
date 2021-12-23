@@ -5,9 +5,9 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
-      time: "00:00"
-      timezone: "UTC"
+      interval: 'daily'
+      time: '00:00'
+      timezone: 'UTC'
