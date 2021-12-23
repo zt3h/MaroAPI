@@ -1,7 +1,7 @@
-const totalCPUs = require('os').cpus().length;
 const express = require('express');
 const cluster = require('cluster');
 const path = require('path');
+const os = require('os');
 const app = express();
 
 const ValidateBody = require('./middleware/validateBody');
@@ -12,18 +12,23 @@ const Bazaar = require('./routes/bazaar');
 const Networth = require('./routes/networth');
 const Leaderboard = require('./routes/leaderboard');
 const ForgeProfits = require('./routes/forgeProfits');
+const HealthCheck = require('./routes/healthCheck');
 
 require('./jobs/updateAuctions');
 require('./jobs/updateBazaar');
 
 const createCluster = function () {
-  console.log(`Booting Maro's API with ${totalCPUs} instances`);
+  const totalCores = process.env.CLUSTERS || os.cpus().length;
 
-  for (let i = 0; i < totalCPUs; i++) {
+  console.log(`Booting Maro's API with ${totalCores} instances`);
+
+  for (let i = 0; i < totalCores; i++) {
     cluster.fork();
   }
 
   cluster.on('exit', worker => {
+    console.log(`Worker ${worker.id} had a heart attack, starting a new one`);
+
     cluster.fork();
   });
 };
@@ -42,10 +47,14 @@ const startWebService = async function () {
   app.use('/api/networth', Networth);
   app.use('/api/leaderboard', Leaderboard);
   app.use('/api/forge', ForgeProfits);
+  app.use('/api/health', HealthCheck);
 
   app.use(NotFound);
 
-  app.listen(3000);
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Worker ${cluster.worker.id} with process id ${process.pid} is now listening on port ${port}`);
+  });
 };
 
 if (cluster.isMaster) {
