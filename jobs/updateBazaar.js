@@ -33,7 +33,7 @@ const fetchProducts = async function () {
     };
   }
 
-  return updateProducts();
+  return await updateProducts();
 };
 
 if (process.env.NODE_APP_INSTANCE === '0') fetchProducts();

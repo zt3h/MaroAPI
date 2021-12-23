@@ -13,9 +13,9 @@ const findProfits = function (db) {
       const data = db[item[0]];
       if (data === undefined) continue;
 
-      let index = 0, count = 0;
+      let index = 0, count = 0, required = item[1];
 
-      while (count < item[1]) {
+      while (count < required) {
         if (data.type == 'AUCTION') {
           if (!data.sales[index]) index = 0;
 
