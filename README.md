@@ -29,9 +29,16 @@ Then you can start the API service using the following command using either Yarn
 
 ### Database Setup
 
-First navigate into the /backup folder and import the .csv files into a Mongo Database.
+First navigate into the `/backup` folder and import the .csv files into a Mongo Database.
 
-Once done, you will then need to enter your Mongo DB URL to the config.js before starting the application.
+    mongoimport --type csv -d maro -c auctions --headerline --drop auctions.csv <MongoConnectionString>
+    mongoimport --type csv -d maro -c bazzar --headerline --drop bazzar.csv <MongoConnectionString>
+    mongoimport --type csv -d maro -c leaderboards --headerline --drop leaderboards.csv <MongoConnectionString>
+    mongoimport --type csv -d maro -c players --headerline --drop players.csv <MongoConnectionString>
+
+To change the database name replace maro in `-d maro` with the desired database name.
+
+Once done, you will then need to enter your Mongo DB URL to the `config.js` before starting the application.
 
 ### Endpoint Usage
 
