@@ -21,12 +21,10 @@ const updateAuctions = async function () {
   Object.keys(auctions).forEach(async item => {
     const sales = auctions[item].map(i => ({ price: i.price, count: i.count }));
 
-    if (sales.length) {
-      const lbin = Math.min(...sales.map(i => i.price));
-      const auction = auctions[item].filter(i => i.price === lbin)[0];
+    const lowest = Math.min(...sales.map(i => i.price));
+    const auction = auctions[item].filter(i => i.price === lowest)[0];
 
-      await db.auctions.updateOne({ id: item.toUpperCase() }, { sales: sales, auction: auction }, { upsert: true });
-    }
+    await db.auctions.updateOne({ id: item.toUpperCase() }, { sales: sales, auction: auction }, { upsert: true });
   });
 
   auctions = {};
