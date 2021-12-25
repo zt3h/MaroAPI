@@ -7,7 +7,7 @@
     "start": "pm2 start ecosystem.config.js --only prod && pm2 monit"
   },
   "author": "Nariah",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
     "express": "^4.17.2",
