@@ -32,7 +32,7 @@ Then you can start the API service using the following command using either Yarn
 First navigate into the `/backup` folder and import the .csv files into a Mongo Database.
 
     mongoimport --type csv -d maro -c auctions --headerline --drop auctions.csv <MongoConnectionString>
-    mongoimport --type csv -d maro -c bazzar --headerline --drop bazzar.csv <MongoConnectionString>
+    mongoimport --type csv -d maro -c bazaar --headerline --drop bazaar.csv <MongoConnectionString>
     mongoimport --type csv -d maro -c leaderboards --headerline --drop leaderboards.csv <MongoConnectionString>
     mongoimport --type csv -d maro -c players --headerline --drop players.csv <MongoConnectionString>
 
