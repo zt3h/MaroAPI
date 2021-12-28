@@ -12,7 +12,7 @@ const Bazaar = require('./routes/bazaar');
 const Networth = require('./routes/networth');
 const Leaderboard = require('./routes/leaderboard');
 const ForgeProfits = require('./routes/forgeProfits');
-const HealthCheck = require('./routes/healthCheck');
+const ApiStats = require('./routes/apiStats');
 
 require('./jobs/updateAuctions');
 require('./jobs/updateBazaar');
@@ -47,7 +47,7 @@ const startWebService = async function () {
   app.use('/api/networth', Networth);
   app.use('/api/leaderboard', Leaderboard);
   app.use('/api/forge', ForgeProfits);
-  app.use('/api/health', HealthCheck);
+  app.use('/api/stats', ApiStats);
 
   app.use(NotFound);
 
