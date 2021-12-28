@@ -10,12 +10,9 @@ const findProfits = function (db) {
     const recipe = [];
 
     for (const item of Object.entries(items)) {
-      const data = db[item[0]];
-      if (data === undefined) continue;
+      const data = db[item[0]], index = 0, count = 0;
 
-      let index = 0, count = 0, required = item[1];
-
-      while (count < required) {
+      while (count < item[1]) {
         if (data.type == 'AUCTION') {
           if (!data.sales[index]) index = 0;
 

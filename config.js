@@ -1,3 +1,4 @@
 module.exports = {
-  dbUrl: ''
+  dbUrl: '',
+  apiKeys: []
 };

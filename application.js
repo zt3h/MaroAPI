@@ -18,11 +18,11 @@ require('./jobs/updateAuctions');
 require('./jobs/updateBazaar');
 
 const createCluster = function () {
-  const totalCores = process.env.CLUSTERS || os.cpus().length;
+  const clusters = process.env.CLUSTERS || os.cpus().length;
 
-  console.log(`Booting Maro's API with ${totalCores} instances`);
+  console.log(`Booting Maro's API with ${clusters} instances`);
 
-  for (let i = 0; i < totalCores; i++) {
+  for (let i = 0; i < clusters; i++) {
     cluster.fork();
   }
 
