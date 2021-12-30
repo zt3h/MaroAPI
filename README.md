@@ -48,9 +48,17 @@ Endpoints that require a valid parameter will be listed on the API documentation
 
 For sending a request to the POST endpoints, details on the required body structure and the response format is found [here](https://gist.github.com/zt3h)
 
+### API Hosts
+
+The below list of domains are users / organisations that have chosen to host this API under their own management. Note that these services could be stopped at anytime, so please make sure to keep up in touch with the owners.
+
+    https://maro.skybrokers.xyz - By SkyBrokers
+    https://skyblock.acebot.xyz - By HyperGame
+    
+
 ### Support / Contact
 
-If you have any questions or queries about the code please join Maro's [discord](https://discord.gg/CAMZpQyCxU) and open a ticket and I'll try to answer it ASAP.
+If you have any questions or queries about the code please join Maro's [discord](https://discord.gg/CAMZpQyCxU)
 
 ## License
 
