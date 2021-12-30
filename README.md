@@ -52,8 +52,8 @@ For sending a request to the POST endpoints, details on the required body struct
 
 The below list of domains are users / organisations that have chosen to host this API under their own management. Note that these services could be stopped at anytime, so please make sure to keep up in touch with the owners.
 
-    https://maro.skybrokers.xyz - By SkyBrokers
-    https://skyblock.acebot.xyz - By HyperGame
+    https://maro.skybrokers.xyz - By SkyBrokers (discord.gg/ssb)
+    https://skyblock.acebot.xyz - By HyperGame (discord.gg/hXPapQ3)
     
 
 ### Support / Contact
