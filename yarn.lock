@@ -1128,9 +1128,9 @@ prettier@2.5.1:
   version "2.5.1"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz"
 
-prismarine-nbt@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/prismarine-nbt/-/prismarine-nbt-2.1.0.tgz#10c1976c4ece18767d4153ea6b3b48933476e6e5"
+prismarine-nbt@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/prismarine-nbt/-/prismarine-nbt-2.2.0.tgz#2fbde7ddb2e6c7bba2a5624b4a752ed463f8b1b6"
   dependencies:
     protodef "^1.9.0"
 

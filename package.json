@@ -16,7 +16,7 @@
     "mongoose": "^5.13.8",
     "path": "^0.12.7",
     "pm2": "^5.1.1",
-    "prismarine-nbt": "^2.1.0",
+    "prismarine-nbt": "^2.2.0",
     "zlib": "^1.0.5"
   },
   "devDependencies": {
