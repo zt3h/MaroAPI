@@ -1,4 +1,4 @@
-# Maro's API Service
+# Maro's API Service (Discontinued)
 
 A Hypixel Skyblock focused API providing an easier way to communicate with Hypixel's API.
 
