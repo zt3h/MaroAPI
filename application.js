@@ -1,6 +1,5 @@
 const express = require('express');
 const cluster = require('cluster');
-const path = require('path');
 const os = require('os');
 const app = express();
 
@@ -34,7 +33,7 @@ const createCluster = function () {
 };
 
 const startWebService = async function () {
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static('public'));
 
   app.use(express.json({ limit: '15mb' }));
   app.use(express.urlencoded({ extended: true }));
