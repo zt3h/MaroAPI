@@ -9,7 +9,7 @@
   "author": "Nariah",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^0.27.1",
     "express": "^4.17.3",
     "moment": "^2.29.2",
     "moment-duration-format": "^2.3.2",
