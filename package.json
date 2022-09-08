@@ -13,7 +13,7 @@
     "express": "^4.18.1",
     "moment": "^2.29.3",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.13.8",
+    "mongoose": "^6.5.5",
     "path": "^0.12.7",
     "pm2": "^5.2.0",
     "prismarine-nbt": "^2.2.1",
