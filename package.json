@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "moment": "^2.29.3",
     "moment-duration-format": "^2.3.2",
     "mongoose": "^5.13.8",
